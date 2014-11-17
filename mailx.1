@@ -656,6 +656,14 @@ but any reply returned to the machine
 will have the system wide alias expanded
 as all mail goes through sendmail.
 .SS "Recipient address specifications"
+If the
+.I expandaddr
+option is not set (the default), recipient addresses must be names of
+local mailboxes or Internet mail addresses.
+.PP
+If the
+.I expandaddr
+option is set, the following rules apply:
 When an address is used to name a recipient
 (in any of To, Cc, or Bcc),
 names of local mail folders
@@ -2390,6 +2398,12 @@ If the mailbox is empty,
 and exits immediately.
 If this option is set,
 \fImailx\fR starts even with an empty mailbox.
+.TP
+.B expandaddr
+Causes
+.I mailx
+to expand message recipient addresses, as explained in the section,
+Recipient address specifications.
 .TP
 .B flipr
 Exchanges the

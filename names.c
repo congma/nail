@@ -268,6 +268,9 @@ outof(struct name *names, FILE *fo, struct header *hp)
 	FILE *fout, *fin;
 	int ispipe;
 
+	if (value("expandaddr") == NULL)
+		return names;
+
 	top = names;
 	np = names;
 	time(&now);
