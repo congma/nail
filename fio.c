@@ -497,7 +497,7 @@ globname(char *name)
 	sigemptyset(&nset);
 	sigaddset(&nset, SIGCHLD);
 	sigprocmask(SIG_BLOCK, &nset, NULL);
-	i = wordexp(name, &we, 0);
+	i = wordexp(name, &we, WRDE_NOCMD);
 	sigprocmask(SIG_UNBLOCK, &nset, NULL);
 	switch (i) {
 	case 0:
