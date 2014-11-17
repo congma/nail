@@ -549,7 +549,7 @@ cat(struct name *n1, struct name *n2)
  * Return an error if the name list won't fit.
  */
 char **
-unpack(struct name *np)
+unpack(struct name *smopts, struct name *np)
 {
 	char **ap, **top;
 	struct name *n;
@@ -564,7 +564,7 @@ unpack(struct name *np)
 	 * the terminating 0 pointer.  Additional spots may be needed
 	 * to pass along -f to the host mailer.
 	 */
-	extra = 2;
+	extra = 3 + count(smopts);
 	extra++;
 	metoo = value("metoo") != NULL;
 	if (metoo)
@@ -581,6 +581,10 @@ unpack(struct name *np)
 		*ap++ = "-m";
 	if (verbose)
 		*ap++ = "-v";
+	for (; smopts != NULL; smopts = smopts->n_flink)
+		if ((smopts->n_type & GDEL) == 0)
+			*ap++ = smopts->n_name;
+	*ap++ = "--";
 	for (; n != NULL; n = n->n_flink)
 		if ((n->n_type & GDEL) == 0)
 			*ap++ = n->n_name;

@@ -396,7 +396,7 @@ struct name *outof(struct name *names, FILE *fo, struct header *hp);
 int is_fileaddr(char *name);
 struct name *usermap(struct name *names);
 struct name *cat(struct name *n1, struct name *n2);
-char **unpack(struct name *np);
+char **unpack(struct name *smopts, struct name *np);
 struct name *elide(struct name *names);
 int count(struct name *np);
 struct name *delete_alternates(struct name *np);

@@ -835,7 +835,7 @@ start_mta(struct name *to, struct name *mailargs, FILE *input,
 #endif	/* HAVE_SOCKETS */
 
 	if ((smtp = value("smtp")) == NULL) {
-		args = unpack(cat(mailargs, to));
+		args = unpack(mailargs, to);
 		if (debug || value("debug")) {
 			printf(catgets(catd, CATSET, 181,
 					"Sendmail arguments:"));
