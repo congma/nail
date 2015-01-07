@@ -4,6 +4,7 @@ TAGS
 .make.state
 .nse_depinfo
 *~
+*cscope.out
 #*
 .#*
 ,*
