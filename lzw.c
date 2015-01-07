@@ -516,6 +516,8 @@ zread(void *cookie, char *rbp, int num)
 
 		/* Generate output characters in reverse order. */
 		while (code >= 256) {
+			if (stackp - de_stack >= HSIZE - 1)
+				return -1;
 			*stackp++ = tab_suffixof(code);
 			code = tab_prefixof(code);
 		}

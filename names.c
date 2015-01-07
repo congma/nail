@@ -357,7 +357,7 @@ outof(struct name *names, FILE *fo, struct header *hp)
 			free_child(pid);
 		} else {
 			int f;
-			if ((fout = Zopen(fname, "a", NULL)) == NULL) {
+			if ((fname == NULL) || ((fout = Zopen(fname, "a", NULL)) == NULL)) {
 				perror(fname);
 				senderr++;
 				goto cant;

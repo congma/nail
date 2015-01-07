@@ -905,7 +905,9 @@ err:
 	if (collf != NULL) {
 		Fclose(collf);
 		collf = NULL;
-	}
+	} else {
+        exit(1);
+    }
 out:
 	if (collf != NULL) {
 		if ((cp = value("MAILX_TAIL")) != NULL) {

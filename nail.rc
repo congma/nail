@@ -64,3 +64,7 @@ ignore mime-version content-transfer-encoding
 
 # Only include selected header fields when forwarding messages.
 fwdretain subject date from to
+
+# For Linux and BSD, this should be set.
+set bsdcompat
+
