@@ -5,6 +5,7 @@ TAGS
 .nse_depinfo
 *~
 *cscope.out
+*.sw[lmnop]
 #*
 .#*
 ,*
